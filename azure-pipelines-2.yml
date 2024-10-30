@@ -44,14 +44,13 @@ jobs:
     displayName: 'PS : Add Project GUID'
     enabled: false
   
-
-  - task: SonarCloudPrepare@2
-    displayName: 'Prepare analysis on SonarCloud'
+  - task: SonarCloudPrepare@3
     inputs:
-      SonarCloud: 'serviceconSonar'
-      organization: 'kixb0002'
-      scannerMode: 'MSBuild'
-      projectKey: 'kixb0002_webappdemodb'
+     SonarCloud: 'sonarcld'
+     organization: 'kixb0002'
+     scannerMode: 'dotnet'
+     projectKey: 'kixb0002_webappdemodb'
+     
   
   - task: DotNetCoreCLI@2
     displayName: Build
@@ -73,10 +72,11 @@ jobs:
       publishWebProjects: True
       arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
       zipAfterPublish: True
-  
-  - task: SonarCloudAnalyze@2
-    displayName: 'Run Code Analysis'
-  
+
+  - task: SonarCloudAnalyze@3
+    inputs:
+      jdkversion: 'JAVA_HOME_17_X64'
+
   - task: SonarCloudPublish@2
     displayName: 'Publish Quality Gate Result'
   
