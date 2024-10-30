@@ -51,7 +51,7 @@ jobs:
       SonarCloud: 'serviceconSonar'
       organization: 'kixb0002'
       scannerMode: 'MSBuild'
-      projectKey: 'webappdemodb'
+      projectKey: 'kixb0002_webappdemodb'
   
   - task: DotNetCoreCLI@2
     displayName: Build
