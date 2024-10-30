@@ -48,7 +48,7 @@ jobs:
     displayName: 'Prepare analysis on SonarCloud'
     inputs:
       SonarCloud: 'serviceconSonar'
-      organization: 'taoufikmellah'
+      organization: 'kixb0002'
       scannerMode: 'MSBuild'
       projectKey: 'WebAppWithDatabaseDemo'
   
